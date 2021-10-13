@@ -110,4 +110,4 @@ clases de la capa de dominio.
 dominio.
 * Justificar utilización de patrones de diseño en el caso que se hayan utilizado.
 * Implementar el diagrama de clases propuesto en Java, mostrando el correcto funcionamiento
-de los requerimientos principales a través de Tests Unitarios. 
+de los requerimientos principales a través de Tests Unitarios.
