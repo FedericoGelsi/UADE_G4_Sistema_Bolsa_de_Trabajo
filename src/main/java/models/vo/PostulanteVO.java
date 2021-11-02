@@ -1,6 +1,6 @@
 package models.vo;
 
-public class PostulacionVO {
+public class PostulanteVO {
 	private Integer mes;
 	private Integer anio;
 	private CandidatoVO candidato;

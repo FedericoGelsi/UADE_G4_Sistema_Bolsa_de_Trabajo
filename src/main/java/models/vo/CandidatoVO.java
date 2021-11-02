@@ -1,5 +1,9 @@
 package models.vo;
 
+import models.enums.Categoria;
+import models.enums.Conocimiento;
+import models.enums.Idioma;
+
 import java.util.Date;
 import java.util.List;
 
@@ -9,10 +13,13 @@ public class CandidatoVO {
 	private Integer DNI;
 	private Date fechaNacimiento;
 	private String nacionalidad;
-	private List<ConocimientoVO> conocientos;
-	private List<String> idiomas;
-	private List<CategoriaVO> categorias;
+	private List<Conocimiento> conocientos;
+	private List<Idioma> idiomas;
+	private List<Categoria> categorias;
 
+	public CandidatoVO() {
+
+	}
 
 	public CandidatoVO(String nombre, String apellido, Integer DNI) {
 		this.nombre = nombre;
@@ -57,27 +64,27 @@ public class CandidatoVO {
 		this.nacionalidad = nacionalidad;
 	}
 
-	public List<ConocimientoVO> getConocientos() {
+	public List<Conocimiento> getConocientos() {
 		return conocientos;
 	}
 
-	public void setConocientos(List<ConocimientoVO> conocientos) {
+	public void setConocientos(List<Conocimiento> conocientos) {
 		this.conocientos = conocientos;
 	}
 
-	public List<String> getIdiomas() {
+	public List<Idioma> getIdiomas() {
 		return idiomas;
 	}
 
-	public void setIdiomas(List<String> idiomas) {
+	public void setIdiomas(List<Idioma> idiomas) {
 		this.idiomas = idiomas;
 	}
 
-	public List<CategoriaVO> getCategorias() {
+	public List<Categoria> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<CategoriaVO> categorias) {
+	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 }

@@ -14,7 +14,7 @@ public class PublicacionDAO {
 	public List<PublicacionVO> getPublicaciones() {
 		Conexion conex= new Conexion();
 		List<PublicacionVO> publicaciones= new ArrayList<PublicacionVO>();		
-		List<PostulacionVO> postulaciones= new ArrayList<PostulacionVO>();
+		List<PostulanteVO> postulaciones= new ArrayList<PostulanteVO>();
 
 		try {			
 			PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM publicacion pub"
@@ -27,9 +27,9 @@ public class PublicacionDAO {
 					PublicacionVO publicacion= new PublicacionVO();
 					publicacion.setTitulo(res.getString("titulo"));
 					publicacion.setSueldo(Double.parseDouble(res.getString("sueldo")));	
-					postulaciones= new ArrayList<PostulacionVO>();
+					postulaciones= new ArrayList<PostulanteVO>();
 					
-					PostulacionVO pos = new PostulacionVO();
+					PostulanteVO pos = new PostulanteVO();
 					pos.setMes(Integer.parseInt(res.getString("mes")));
 					pos.setAnio(Integer.parseInt(res.getString("anio")));
 					
@@ -46,7 +46,7 @@ public class PublicacionDAO {
 				}
 				else {
 					PublicacionVO publicacion = publicaciones.get(i);
-					PostulacionVO pos = new PostulacionVO();
+					PostulanteVO pos = new PostulanteVO();
 					pos.setMes(Integer.parseInt(res.getString("mes")));
 					pos.setAnio(Integer.parseInt(res.getString("anio")));
 

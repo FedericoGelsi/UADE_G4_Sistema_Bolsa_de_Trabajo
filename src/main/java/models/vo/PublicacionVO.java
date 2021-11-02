@@ -5,8 +5,10 @@ import java.util.List;
 public class PublicacionVO {
 	private String titulo;
 	private Double sueldo;
-	private List<models.vo.PostulacionVO> postulaciones;
-	
+	private List<PostulanteVO> postulaciones;
+
+	// TODO: Delete this class. OfertaLaboralVO will replace it.
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -19,10 +21,10 @@ public class PublicacionVO {
 	public void setSueldo(Double sueldo) {
 		this.sueldo = sueldo;
 	}
-	public List<models.vo.PostulacionVO> getPostulaciones() {
+	public List<PostulanteVO> getPostulaciones() {
 		return postulaciones;
 	}
-	public void setPostulaciones(List<models.vo.PostulacionVO> postulaciones) {
+	public void setPostulaciones(List<PostulanteVO> postulaciones) {
 		this.postulaciones = postulaciones;
 	}
 }

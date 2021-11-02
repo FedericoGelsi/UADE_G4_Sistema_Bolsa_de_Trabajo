@@ -1,5 +1,8 @@
 package models.vo;
 
+import models.enums.Categoria;
+import models.enums.Requisito;
+
 import java.util.List;
 
 public class OfertaLaboralVO {
@@ -9,12 +12,12 @@ public class OfertaLaboralVO {
     private String tipo;
     private String lugar;
     private Double sueldo;
-    private List<RequisitoVO> requisitos;
-    private List<CategoriaVO> categorias;
-    private List<PostulacionVO> postulantes;
+    private List<Requisito> requisitos;
+    private List<Categoria> categorias;
+    private List<PostulanteVO> postulantes;
     private Integer id = 0;
 
-    public OfertaLaboralVO(String titulo, String descripcion, String modalidad, String tipo, String lugar, Double sueldo, List<RequisitoVO> requisitos, List<CategoriaVO> categorias, List<PostulacionVO> postulantes) {
+    public OfertaLaboralVO(String titulo, String descripcion, String modalidad, String tipo, String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias, List<PostulanteVO> postulantes) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.modalidad = modalidad;

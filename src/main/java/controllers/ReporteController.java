@@ -6,6 +6,8 @@ import views.VentanaReporte;
 
 import java.util.List;
 
+// TODO: Replace this class with InformeController.
+
 public class ReporteController {
 
 	private Publicacion publicacion;
@@ -38,7 +40,7 @@ public class ReporteController {
 		int mayor = 0;
 		for(PublicacionVO ol : publicaciones) {
 			int cant = 0;
-			for(PostulacionVO postulacion : ol.getPostulaciones()) {
+			for(PostulanteVO postulacion : ol.getPostulaciones()) {
 				if(postulacion.getAnio().toString().equals(anio.trim())) {
 					if(!mes.trim().equals("") && postulacion.getMes().toString().equals(mes.trim())) {
 						cant++;
