@@ -1,5 +1,21 @@
+import views.VentanaReporte;
+
+import java.awt.*;
+
 public class Application {
+    /**
+     * Launch the application.
+     */
     public static void main(String[] args) {
-        System.out.println("Hola Mundo!");
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    VentanaReporte frame = new VentanaReporte();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

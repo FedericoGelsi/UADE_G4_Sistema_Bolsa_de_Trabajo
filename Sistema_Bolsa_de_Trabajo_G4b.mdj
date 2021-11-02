@@ -587,7 +587,7 @@
 									"font": "Arial;13;0",
 									"left": 560.5,
 									"top": 114.5,
-									"width": 116.18359375,
+									"width": 115,
 									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF7erzrBVWICA0="
@@ -1155,9 +1155,9 @@
 											"fillColor": "#ffeaad",
 											"font": "Arial;13;1",
 											"left": 523.5,
-											"top": 242,
+											"top": 248.5,
 											"width": 98,
-											"height": 39,
+											"height": 26,
 											"text": "CU008 - Postular en oferta laboral",
 											"wordWrap": true
 										},
@@ -1194,9 +1194,9 @@
 									"fillColor": "#ffeaad",
 									"font": "Arial;13;0",
 									"left": 518.5,
-									"top": 235,
+									"top": 241.5,
 									"width": 108,
-									"height": 51,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF7er+SX1dIhXE="
 									},
@@ -1365,9 +1365,9 @@
 											},
 											"font": "Arial;13;1",
 											"left": 437,
-											"top": 325,
+											"top": 331.5,
 											"width": 103,
-											"height": 39,
+											"height": 26,
 											"text": "CU011 - Agregar oferta a favoritos",
 											"wordWrap": true
 										},
@@ -1401,9 +1401,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 432,
-									"top": 318,
+									"top": 324.5,
 									"width": 113,
-									"height": 51,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF7esBXmFeBMuY="
 									},
@@ -2911,9 +2911,9 @@
 											},
 											"font": "Arial;13;1",
 											"left": 283.5,
-											"top": 377.5,
+											"top": 384,
 											"width": 98,
-											"height": 39,
+											"height": 26,
 											"text": "CU018 - Ingresar a la plataforma",
 											"wordWrap": true
 										},
@@ -2947,9 +2947,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 278.5,
-									"top": 370.5,
+									"top": 377,
 									"width": 108,
-									"height": 51,
+									"height": 38,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF7esNMi2NUeU0="
 									},
@@ -10581,7 +10581,7 @@
 													"left": 941,
 													"top": 839,
 													"width": 163.76953125,
-													"height": 26,
+													"height": 13,
 													"text": "Ingresa Vigencia de Oferta",
 													"wordWrap": true
 												},
@@ -10615,7 +10615,7 @@
 											"left": 936,
 											"top": 832,
 											"width": 173.76953125,
-											"height": 38,
+											"height": 25,
 											"stereotypeLabel": {
 												"$ref": "AAAAAAF7nnwBr+bACF0="
 											},
@@ -11852,9 +11852,9 @@
 														"$ref": "AAAAAAF7nrQ2xGBLHK0="
 													},
 													"font": "Arial;13;0",
-													"left": 32.72998046875,
+													"left": 30.55908203125,
 													"top": 5,
-													"width": 202.60791015625,
+													"width": 181.49560546875,
 													"height": 13,
 													"text": "Oferta laboral con más postulantes"
 												},
@@ -11867,7 +11867,7 @@
 													"font": "Arial;13;1",
 													"left": 13,
 													"top": 5,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -12582,9 +12582,9 @@
 														"$ref": "AAAAAAF7nrQ2xWByjS8="
 													},
 													"font": "Arial;13;0",
-													"left": 387.578125,
+													"left": 386.11181640625,
 													"top": 293,
-													"width": 133.25341796875,
+													"width": 120.10107421875,
 													"height": 13,
 													"text": "Por cada ofertaLaboral"
 												},
@@ -12597,7 +12597,7 @@
 													"font": "Arial;13;1",
 													"left": 357,
 													"top": 293,
-													"width": 25.578125,
+													"width": 24.11181640625,
 													"height": 13,
 													"text": "loop"
 												},
@@ -13017,9 +13017,9 @@
 														"$ref": "AAAAAAF7nrQ2xWCHVkA="
 													},
 													"font": "Arial;13;0",
-													"left": 408.72998046875,
+													"left": 407.99365234375,
 													"top": 389,
-													"width": 99.287109375,
+													"width": 90.5146484375,
 													"height": 13,
 													"text": "fechaPublicacion"
 												},
@@ -13032,7 +13032,7 @@
 													"font": "Arial;13;1",
 													"left": 389,
 													"top": 389,
-													"width": 14.72998046875,
+													"width": 13.99365234375,
 													"height": 13,
 													"text": "alt"
 												},
@@ -13065,7 +13065,7 @@
 																	"font": "Arial;13;0",
 																	"left": 404,
 																	"top": 422,
-																	"width": 163.33154296875,
+																	"width": 151.80419921875,
 																	"height": 13,
 																	"text": "[[fecha == fechaPublicacion]"
 																}
@@ -13342,9 +13342,9 @@
 														"$ref": "AAAAAAF7nrQ2xWCXmYk="
 													},
 													"font": "Arial;13;0",
-													"left": 416.72998046875,
+													"left": 415.99365234375,
 													"top": 549,
-													"width": 118.08251953125,
+													"width": 104.25732421875,
 													"height": 13,
 													"text": "cantidadPostulantes"
 												},
@@ -13357,7 +13357,7 @@
 													"font": "Arial;13;1",
 													"left": 397,
 													"top": 549,
-													"width": 14.72998046875,
+													"width": 13.99365234375,
 													"height": 13,
 													"text": "alt"
 												},
@@ -13390,7 +13390,7 @@
 																	"font": "Arial;13;0",
 																	"left": 412,
 																	"top": 582,
-																	"width": 142.71435546875,
+																	"width": 131.50439453125,
 																	"height": 13,
 																	"text": "[postulante > maxOferta]"
 																}
@@ -13423,7 +13423,7 @@
 																	"font": "Arial;13;0",
 																	"left": 412,
 																	"top": 696,
-																	"width": 142.71435546875,
+																	"width": 131.50439453125,
 																	"height": 13,
 																	"text": "[postulante = maxOferta]"
 																}
@@ -14170,9 +14170,9 @@
 														"$ref": "AAAAAAF7nrQ2xmDMlno="
 													},
 													"font": "Arial;13;0",
-													"left": 32.72998046875,
+													"left": 30.55908203125,
 													"top": 5,
-													"width": 328.3359375,
+													"width": 289.40576171875,
 													"height": 13,
 													"text": "M categorías más seleccionadas en las ofertas laborales"
 												},
@@ -14185,7 +14185,7 @@
 													"font": "Arial;13;1",
 													"left": 13,
 													"top": 5,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -14894,9 +14894,9 @@
 														"$ref": "AAAAAAF7nrtyB2WK+v0="
 													},
 													"font": "Arial;13;0",
-													"left": 371.578125,
+													"left": 370.11181640625,
 													"top": 309,
-													"width": 136.13525390625,
+													"width": 122.9892578125,
 													"height": 13,
 													"text": "Por cada OfertaLaboral"
 												},
@@ -14909,7 +14909,7 @@
 													"font": "Arial;13;1",
 													"left": 341,
 													"top": 309,
-													"width": 25.578125,
+													"width": 24.11181640625,
 													"height": 13,
 													"text": "loop"
 												},
@@ -15217,9 +15217,9 @@
 														"$ref": "AAAAAAF7nr4MHmXk4EQ="
 													},
 													"font": "Arial;13;0",
-													"left": 387.578125,
+													"left": 386.11181640625,
 													"top": 421,
-													"width": 113.0107421875,
+													"width": 99.90283203125,
 													"height": 13,
 													"text": "Por cada Categoria"
 												},
@@ -15232,7 +15232,7 @@
 													"font": "Arial;13;1",
 													"left": 357,
 													"top": 421,
-													"width": 25.578125,
+													"width": 24.11181640625,
 													"height": 13,
 													"text": "loop"
 												},
@@ -16035,9 +16035,9 @@
 														"$ref": "AAAAAAF7nrQ2xmDS6wE="
 													},
 													"font": "Arial;13;0",
-													"left": 32.72998046875,
+													"left": 30.55908203125,
 													"top": 5,
-													"width": 123.103515625,
+													"width": 109.27197265625,
 													"height": 13,
 													"text": "Oferta más accesible"
 												},
@@ -16050,7 +16050,7 @@
 													"font": "Arial;13;1",
 													"left": 13,
 													"top": 5,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -16765,9 +16765,9 @@
 														"$ref": "AAAAAAF8dv9Qsz/3ims="
 													},
 													"font": "Arial;13;0",
-													"left": 307.578125,
+													"left": 306.11181640625,
 													"top": 245,
-													"width": 97.83984375,
+													"width": 87.6201171875,
 													"height": 13,
 													"text": "ofertasLaborales"
 												},
@@ -16780,7 +16780,7 @@
 													"font": "Arial;13;1",
 													"left": 277,
 													"top": 245,
-													"width": 25.578125,
+													"width": 24.11181640625,
 													"height": 13,
 													"text": "loop"
 												},
@@ -17725,7 +17725,7 @@
 													},
 													"visible": false,
 													"font": "Arial;13;0",
-													"left": 368.72998046875,
+													"left": 367.99365234375,
 													"top": 701,
 													"width": 1,
 													"height": 13
@@ -17739,7 +17739,7 @@
 													"font": "Arial;13;1",
 													"left": 349,
 													"top": 701,
-													"width": 14.72998046875,
+													"width": 13.99365234375,
 													"height": 13,
 													"text": "alt"
 												},
@@ -17772,7 +17772,7 @@
 																	"font": "Arial;13;0",
 																	"left": 364,
 																	"top": 734,
-																	"width": 402.009765625,
+																	"width": 360.0009765625,
 																	"height": 13,
 																	"text": "[esPartTime,esRemoto,cantidadTareasAsignadas,cantidadRequisitos]"
 																}
@@ -17939,7 +17939,7 @@
 													"font": "Arial;13;0",
 													"left": 364,
 													"top": 734,
-													"width": 402.009765625,
+													"width": 360.0009765625,
 													"height": 13,
 													"text": "[esPartTime,esRemoto,cantidadTareasAsignadas,cantidadRequisitos]"
 												}
@@ -18410,9 +18410,9 @@
 														"$ref": "AAAAAAF8tE11B2xVlww="
 													},
 													"font": "Arial;13;0",
-													"left": 32.72998046875,
+													"left": 30.55908203125,
 													"top": 13,
-													"width": 118.05712890625,
+													"width": 105.6728515625,
 													"height": 13,
 													"text": "Oferta mas exigente"
 												},
@@ -18425,7 +18425,7 @@
 													"font": "Arial;13;1",
 													"left": 13,
 													"top": 13,
-													"width": 14.72998046875,
+													"width": 12.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -19141,9 +19141,9 @@
 														"$ref": "AAAAAAF8tFoFcm2YKFE="
 													},
 													"font": "Arial;13;0",
-													"left": 291.578125,
+													"left": 290.11181640625,
 													"top": 253,
-													"width": 100.7216796875,
+													"width": 90.50830078125,
 													"height": 13,
 													"text": "OfertasLaborales"
 												},
@@ -19156,7 +19156,7 @@
 													"font": "Arial;13;1",
 													"left": 261,
 													"top": 253,
-													"width": 25.578125,
+													"width": 24.11181640625,
 													"height": 13,
 													"text": "loop"
 												},
@@ -19465,9 +19465,9 @@
 														"$ref": "AAAAAAF8tGAnM24FIbE="
 													},
 													"font": "Arial;13;0",
-													"left": 360.72998046875,
+													"left": 359.99365234375,
 													"top": 421,
-													"width": 113.734375,
+													"width": 102.8291015625,
 													"height": 13,
 													"text": "CantidadRequisitos"
 												},
@@ -19480,7 +19480,7 @@
 													"font": "Arial;13;1",
 													"left": 341,
 													"top": 421,
-													"width": 14.72998046875,
+													"width": 13.99365234375,
 													"height": 13,
 													"text": "alt"
 												},
@@ -19513,7 +19513,7 @@
 																	"font": "Arial;13;0",
 																	"left": 356,
 																	"top": 454,
-																	"width": 279.30322265625,
+																	"width": 257.130859375,
 																	"height": 13,
 																	"text": "[cantidadRequisitos>OfertaLaboralMasExigente]"
 																}
@@ -20208,7 +20208,7 @@
 											"top": 545,
 											"width": 230,
 											"height": 13,
-											"text": "-conocimientos: List<Conocimiento>",
+											"text": "-requisitos: List<Requisito>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -30265,9 +30265,9 @@
 							"_parent": {
 								"$ref": "AAAAAAF8w9M1KCUclZs="
 							},
-							"name": "conocimientos",
+							"name": "requisitos",
 							"visibility": "private",
-							"type": "List<Conocimiento>"
+							"type": "List<Requisito>"
 						},
 						{
 							"_type": "UMLAttribute",
