@@ -106,7 +106,7 @@ emitir el sistema.
 clases de la capa de dominio.
 
 ## Segunda entrega
-- [ ] Realizar el diagrama de clases del sistema, detallando, solamente, las clases de la capa de
+- [x] Realizar el diagrama de clases del sistema, detallando, solamente, las clases de la capa de
 dominio.
 - [ ] Justificar utilización de patrones de diseño en el caso que se hayan utilizado.
 - [ ] Implementar el diagrama de clases propuesto en Java, mostrando el correcto funcionamiento
