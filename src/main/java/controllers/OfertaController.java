@@ -17,19 +17,19 @@ public class OfertaController {
         return 1;
     }
 
-    public void EditarOfertaLaboral(int idOferta) {
+    public void EditarOfertaLaboral(Integer idOferta) {
 
     }
 
-    public void EliminarOfertaLaboral(int idOferta) {
+    public void EliminarOfertaLaboral(Integer idOferta) {
 
     }
 
-    public ArrayList<OfertaLaboralVO> ObtenerOfertasLaborales(int idEmpresa) {
+    public ArrayList<OfertaLaboralVO> ObtenerOfertasLaborales(Integer idEmpresa) {
         return new ArrayList<>();
     }
 
-    public Integer AgregarPostulanteAOferta(PostulanteVO postulanteVO, int idOferta) {
+    public Integer AgregarPostulanteAOferta(PostulanteVO postulanteVO, Integer idOferta) {
         return 1;
     }
 }
