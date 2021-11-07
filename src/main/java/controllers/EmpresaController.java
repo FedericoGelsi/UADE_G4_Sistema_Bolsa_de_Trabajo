@@ -40,6 +40,10 @@ public class EmpresaController {
 
     }
 
+    public void agregarEmpresa(EmpresaVO empresa) {
+        empresas.add(empresa);
+    }
+
     public void setOfertaController(OfertaController ofertaController) {
         this.ofertaController = ofertaController;
     }

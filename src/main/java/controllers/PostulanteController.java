@@ -19,6 +19,10 @@ public class PostulanteController {
         return null;
     }
 
+    public void agregarPostulante(PostulanteVO postulanteVO) {
+        postulantes.add(postulanteVO);
+    }
+
     public void setOfertaController(OfertaController ofertaController) {
         this.ofertaController = ofertaController;
     }
