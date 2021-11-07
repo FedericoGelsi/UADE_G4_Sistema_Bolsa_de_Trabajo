@@ -17,7 +17,6 @@ public class OfertaLaboralVO {
     private List<Requisito> requisitos;
     private List<Categoria> categorias;
     private List<PostulanteVO> postulantes;
-    private Integer id = 0;
 
     public OfertaLaboralVO(Integer empresaId, Integer ofertaId,  String titulo, String descripcion, String modalidad,
                            String tipo,String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias) {
@@ -31,7 +30,6 @@ public class OfertaLaboralVO {
         this.sueldo = sueldo;
         this.requisitos = requisitos;
         this.categorias = categorias;
-        this.id += 1;
     }
 
     public OfertaLaboralVO() {
