@@ -30,6 +30,9 @@ public class OfertaLaboralVO {
         this.id += 1;
     }
 
+    public OfertaLaboralVO() {
+
+    }
 
 
     public String getTitulo() {

@@ -28,7 +28,7 @@ public class Principal {
 		miVentanaReporte.setCoordinador(miCoordinador);
 		
 		/*Se establecen relaciones con la clase coordinador*/
-		miCoordinador.setMiVentanaReporte(miVentanaReporte);		
+		miCoordinador.setMiVentanaReporte(miVentanaReporte);
 				
 		miVentanaReporte.setVisible(true);
 	}

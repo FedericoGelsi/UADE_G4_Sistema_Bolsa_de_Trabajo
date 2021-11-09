@@ -1,6 +1,7 @@
 package controllers;
 
 import models.Publicacion;
+import models.enums.Conocimiento;
 import models.vo.*;
 import views.VentanaReporte;
 
@@ -58,6 +59,23 @@ public class ReporteController {
 		
 		res.setTitulo_oferta(title);
 		res.setCantidad_entre_fechas(mayor);
+		return res;
+	}
+
+	public ReporteVO getReporteMasExigente() {
+		String title = "";
+		int masConocimientos = 0;
+		List<Conocimiento> conocimientosList = null;
+		ReporteVO res = new ReporteVO();
+		List<PublicacionVO> publicaciones = publicacion.getPublicaciones();
+		for(PublicacionVO ol : publicaciones) {
+			conocimientosList = ol.getConocimientos();
+			if (conocimientosList.size() > masConocimientos) {
+				title = ol.getTitulo();
+			}
+		}
+		//res.setTitulo_oferta(title);
+		res.setTitulo_oferta("pepe");
 		return res;
 	}
 }
