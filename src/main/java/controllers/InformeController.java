@@ -46,19 +46,4 @@ public class InformeController {
         return categorias;
     }
 
-
-
-    private static List<Categoria> getKeysWithMaxValue(Map<Categoria, Integer> map){
-        List<Categoria> resultList = new ArrayList<>();
-        int currentMaxValue = 1;
-        for (Map.Entry<Categoria, Integer> entry : map.entrySet()){
-            if (entry.getValue() >= currentMaxValue){
-                resultList.clear();
-                resultList.add(entry.getKey());
-                currentMaxValue = entry.getValue();
-            }
-        }
-        return resultList;
-    }
-
 }
