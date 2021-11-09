@@ -30,7 +30,7 @@ public class OfertaLaboralVO {
         this.id += 1;
     }
 
-
+    public List<Categoria> getCategorias() { return this.categorias; }
 
     public String getTitulo() {
         return this.titulo;
