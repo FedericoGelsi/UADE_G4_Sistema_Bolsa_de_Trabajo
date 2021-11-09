@@ -65,17 +65,17 @@ public class ReporteController {
 	public ReporteVO getReporteMasExigente() {
 		String title = "";
 		int masConocimientos = 0;
-		List<Conocimiento> conocimientosList = null;
+		List<Conocimiento> conocimientosList;
 		ReporteVO res = new ReporteVO();
 		List<PublicacionVO> publicaciones = publicacion.getPublicaciones();
 		for(PublicacionVO ol : publicaciones) {
 			conocimientosList = ol.getConocimientos();
 			if (conocimientosList.size() > masConocimientos) {
+				masConocimientos = conocimientosList.size();
 				title = ol.getTitulo();
 			}
 		}
-		//res.setTitulo_oferta(title);
-		res.setTitulo_oferta("pepe");
+		res.setTitulo_oferta(title);
 		return res;
 	}
 }
