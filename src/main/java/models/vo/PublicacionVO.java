@@ -27,4 +27,5 @@ public class PublicacionVO {
 	public void setPostulaciones(List<PostulanteVO> postulaciones) {
 		this.postulaciones = postulaciones;
 	}
+
 }
