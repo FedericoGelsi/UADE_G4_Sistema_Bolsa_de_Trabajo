@@ -11,16 +11,5 @@ public class InformeController {
     public InformeController() {
     }
 
-    public List<OfertaLaboralVO> getOfertasLaboralesVO() {
-        return ofertasLaboralesVO;
-    }
 
-    public void setOfertasLaboralesVO(List<OfertaLaboralVO> ofertasLaboralesVO) {
-        this.ofertasLaboralesVO = ofertasLaboralesVO;
-    }
-
-    public InformeVO getInformeOfertaMasAccesible(){
-
-        return null;
-    }
 }
