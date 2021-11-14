@@ -50,9 +50,9 @@ public class OfertaController {
     public ArrayList<OfertaLaboralVO> ObtenerOfertasLaborales(Integer idEmpresa) {
         ArrayList<OfertaLaboralVO> ofertas = new ArrayList<>();
         ofertasLaborales.forEach(oferta -> {
-            if(oferta.getEmpresaId() == idEmpresa) {
-                ofertas.add(oferta);
-            }});
+                if(oferta.getEmpresaId() == idEmpresa) {
+                    ofertas.add(oferta);
+                }});
         return ofertas;
     }
 
@@ -61,5 +61,9 @@ public class OfertaController {
                 ofertasLaborales.stream().filter(oferta -> oferta.getOfertaId() == ofertaId).findAny().orElse(null);
         Integer index = ofertasLaborales.indexOf(ofertaLaboralExistente);
         ofertasLaborales.get(index).agregarPostulante(postulanteVO);
+    }
+
+    public void setEmpresaController(EmpresaController empresaController) {
+        this.empresaController = empresaController;
     }
 }
