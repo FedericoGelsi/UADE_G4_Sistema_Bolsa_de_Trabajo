@@ -29,6 +29,7 @@ class OfertaLaboralVOTest {
         Collections.addAll(postulantes, new PostulanteVO(), new PostulanteVO());
 
         ofertaLaboralVO = new OfertaLaboralVO(
+                10,
                 "Titulo",
                 "Descripcion",
                 Modalidad.PART_TIME,
@@ -36,9 +37,10 @@ class OfertaLaboralVOTest {
                 "CABA",
                 160000.00,
                 requisitos,
-                categorias,
-                postulantes
+                categorias
         );
+
+        ofertaLaboralVO.setPostulantes(postulantes);
     }
 
     @AfterEach
@@ -187,19 +189,37 @@ class OfertaLaboralVOTest {
     }
 
     @Test
-    public void TestOfertaLaboralVO_GetId_ShouldNotBeNull(){
+    public void TestOfertaLaboralVO_GetOfertaId_ShouldNotBeNull(){
         //Arrange
         //Act
-        Object actual = ofertaLaboralVO.getId();
+        Object actual = ofertaLaboralVO.getOfertaId();
         //Assert
         Assertions.assertNotNull(actual);
     }
 
     @Test
-    public void TestOfertaLaboralVO_GetId_ShouldBeGreaterThanZero(){
+    public void TestOfertaLaboralVO_GetOfertaId_ShouldBeGreaterThanZero(){
         //Arrange
         //Act
-        Integer actual = ofertaLaboralVO.getId();
+        Integer actual = ofertaLaboralVO.getOfertaId();
+        //Assert
+        Assertions.assertTrue(actual > 0 );
+    }
+
+    @Test
+    public void TestOfertaLaboralVO_GetEmpresaId_ShouldNotBeNull(){
+        //Arrange
+        //Act
+        Object actual = ofertaLaboralVO.getOfertaId();
+        //Assert
+        Assertions.assertNotNull(actual);
+    }
+
+    @Test
+    public void TestOfertaLaboralVO_GetEmpresaId_ShouldBeGreaterThanZero(){
+        //Arrange
+        //Act
+        Integer actual = ofertaLaboralVO.getOfertaId();
         //Assert
         Assertions.assertTrue(actual > 0 );
     }

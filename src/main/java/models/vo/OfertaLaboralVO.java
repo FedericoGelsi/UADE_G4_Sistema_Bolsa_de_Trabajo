@@ -27,7 +27,8 @@ public class OfertaLaboralVO {
         this.ofertaId = count.incrementAndGet();
     }
 
-    public OfertaLaboralVO(String titulo, String descripcion, Modalidad modalidad, Tipo tipo, String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias, List<PostulanteVO> postulantes) {
+    public OfertaLaboralVO(Integer empresaId, String titulo, String descripcion, Modalidad modalidad, Tipo tipo, String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias) {
+        this.empresaId = empresaId;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.modalidad = modalidad;
@@ -36,7 +37,6 @@ public class OfertaLaboralVO {
         this.sueldo = sueldo;
         this.requisitos = requisitos;
         this.categorias = categorias;
-        this.postulantes = postulantes;
         this.ofertaId = count.incrementAndGet();
     }
 
@@ -85,4 +85,8 @@ public class OfertaLaboralVO {
     }
     public Integer getEmpresaId() { return this.empresaId; }
     public Integer getOfertaId() { return this.ofertaId; }
+
+    public void setPostulantes(List<PostulanteVO> postulantes) {
+        this.postulantes = postulantes;
+    }
 }

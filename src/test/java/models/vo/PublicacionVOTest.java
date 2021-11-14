@@ -33,6 +33,7 @@ class PublicacionVOTest {
         Collections.addAll(postulantes, new PostulanteVO(), new PostulanteVO());
 
         OfertaLaboralVO ofertaLaboralVO = new OfertaLaboralVO(
+                10,
                 "Titulo",
                 "Descripcion",
                 Modalidad.PART_TIME,
@@ -40,9 +41,9 @@ class PublicacionVOTest {
                 "CABA",
                 160000.00,
                 requisitos,
-                categorias,
-                postulantes
+                categorias
         );
+        ofertaLaboralVO.setPostulantes(postulantes);
         publicacionVO = new PublicacionVO(
                 ofertaLaboralVO,
                 LocalDateTime.now().minusHours(10),
@@ -101,16 +102,6 @@ class PublicacionVOTest {
 
         // Act
         LocalDateTime actual = publicacionVO.getVigenciaHasta();
-        // Assert
-        assertNotNull(actual);
-    }
-
-    @Test
-    void TestPublicacionVO_isVigente_ShouldNotBeNull(){
-        // Arrange
-
-        // Act
-        boolean actual = publicacionVO.isVigente();
         // Assert
         assertNotNull(actual);
     }
