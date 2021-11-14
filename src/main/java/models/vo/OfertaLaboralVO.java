@@ -39,14 +39,14 @@ public class OfertaLaboralVO {
     public void agregarPostulante(PostulanteVO postulanteVO) {
         this.postulantes.add(postulanteVO);
     }
-
     public String getTitulo() {
         return this.titulo;
     }
-    public Integer getEmpresaId() { return this.empresaId; }
-    public Integer getOfertaId() { return this.ofertaId; }
     public List<PostulanteVO> getPostulantes() { return this.postulantes; }
     public void setPostulantes(List<PostulanteVO> postulantes) {
         this.postulantes = postulantes;
     }
+    public Integer getEmpresaId() { return this.empresaId; }
+    public Integer getOfertaId() { return this.ofertaId; }
+    public List<Categoria> getCategorias() { return this.categorias; }
 }

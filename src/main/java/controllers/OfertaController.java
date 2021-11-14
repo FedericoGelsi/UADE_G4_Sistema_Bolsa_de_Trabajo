@@ -37,7 +37,7 @@ public class OfertaController {
         Integer index = ofertasLaborales.indexOf(ofertaLaboralExistente);
         OfertaLaboralVO ofertaEditada = new OfertaLaboralVO(empresa.getId(), this.idCounter, titulo, descripcion,
                 modalidad, tipo, lugar, sueldo, requisitos, categorias);
-        ofertaEditada.setPostulantes(ofertaLaboralExistente.getPostulantes());
+        ofertaEditada.setPostulantes(ofertaLaboralExistente.getPostulantes() );
         ofertasLaborales.set(index, ofertaEditada);
     }
 
