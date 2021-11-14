@@ -62,4 +62,8 @@ public class OfertaController {
         Integer index = ofertasLaborales.indexOf(ofertaLaboralExistente);
         ofertasLaborales.get(index).agregarPostulante(postulanteVO);
     }
+
+    public void setEmpresaController(EmpresaController empresaController) {
+        this.empresaController = empresaController;
+    }
 }
