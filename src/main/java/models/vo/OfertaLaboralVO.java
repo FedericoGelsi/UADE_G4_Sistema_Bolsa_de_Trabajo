@@ -6,6 +6,8 @@ import models.enums.Requisito;
 import java.util.List;
 
 public class OfertaLaboralVO {
+    private Integer empresaId;
+    private Integer ofertaId;
     private String titulo;
     private String descripcion;
     private String modalidad;
@@ -15,9 +17,11 @@ public class OfertaLaboralVO {
     private List<Requisito> requisitos;
     private List<Categoria> categorias;
     private List<PostulanteVO> postulantes;
-    private Integer id = 0;
 
-    public OfertaLaboralVO(String titulo, String descripcion, String modalidad, String tipo, String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias, List<PostulanteVO> postulantes) {
+    public OfertaLaboralVO(Integer empresaId, Integer ofertaId,  String titulo, String descripcion, String modalidad,
+                           String tipo,String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias) {
+        this.empresaId = empresaId;
+        this.ofertaId = ofertaId;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.modalidad = modalidad;
@@ -26,13 +30,23 @@ public class OfertaLaboralVO {
         this.sueldo = sueldo;
         this.requisitos = requisitos;
         this.categorias = categorias;
-        this.postulantes = postulantes;
-        this.id += 1;
     }
 
+    public OfertaLaboralVO() {
 
+    }
+
+    public void agregarPostulante(PostulanteVO postulanteVO) {
+        this.postulantes.add(postulanteVO);
+    }
 
     public String getTitulo() {
         return this.titulo;
+    }
+    public Integer getEmpresaId() { return this.empresaId; }
+    public Integer getOfertaId() { return this.ofertaId; }
+    public List<PostulanteVO> getPostulantes() { return this.postulantes; }
+    public void setPostulantes(List<PostulanteVO> postulantes) {
+        this.postulantes = postulantes;
     }
 }
