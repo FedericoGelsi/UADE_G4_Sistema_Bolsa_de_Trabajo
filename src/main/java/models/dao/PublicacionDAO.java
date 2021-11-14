@@ -1,5 +1,6 @@
 package models.dao;
 
+import exceptions.PostulanteException;
 import models.connections.Conexion;
 import models.vo.*;
 
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,9 +26,12 @@ public class PublicacionDAO {
 				int i = indexOfArray(publicaciones, res.getString("titulo"));
 				
 				if(i == -1) {
-					PublicacionVO publicacion= new PublicacionVO();
-					publicacion.setTitulo(res.getString("titulo"));
-					publicacion.setSueldo(Double.parseDouble(res.getString("sueldo")));	
+					OfertaLaboralVO ofertaLaboralVO = new OfertaLaboralVO();
+					PublicacionVO publicacion= new PublicacionVO(
+							ofertaLaboralVO,
+							LocalDateTime.now(),
+							LocalDateTime.now().plusMonths(2)
+					);
 					postulaciones= new ArrayList<PostulanteVO>();
 					
 					PostulanteVO pos = new PostulanteVO();
@@ -63,7 +68,7 @@ public class PublicacionDAO {
 			res.close();
 			conex.desconectar();				
 					
-		} catch (SQLException e) {
+		} catch (SQLException | PostulanteException e) {
 			JOptionPane.showMessageDialog(null, "Error, no se conecto");
 			System.out.println(e);
 		}
@@ -74,7 +79,7 @@ public class PublicacionDAO {
 	private int indexOfArray(List<PublicacionVO> publicaciones, String job) {
 		int index = -1;
 		for(int i = 0; i< publicaciones.size(); i++) {
-			if(job.equals(publicaciones.get(i).getTitulo()))
+			if(job.equals(publicaciones.get(i).getOfertaLaboralVO().getTitulo()))
 					index = i;
 		}
 		return index;
