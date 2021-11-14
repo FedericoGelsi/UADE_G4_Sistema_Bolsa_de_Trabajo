@@ -6,6 +6,7 @@ import models.enums.Requisito;
 import models.enums.Tipo;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class OfertaLaboralVO {
     private String titulo;
@@ -17,9 +18,12 @@ public class OfertaLaboralVO {
     private List<Requisito> requisitos;
     private List<Categoria> categorias;
     private List<PostulanteVO> postulantes;
-    private Integer id = 0;
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private final int ofertaId;
+
 
     public OfertaLaboralVO() {
+        this.ofertaId = count.incrementAndGet();
     }
 
     public OfertaLaboralVO(String titulo, String descripcion, Modalidad modalidad, Tipo tipo, String lugar, Double sueldo, List<Requisito> requisitos, List<Categoria> categorias, List<PostulanteVO> postulantes) {
@@ -32,7 +36,7 @@ public class OfertaLaboralVO {
         this.requisitos = requisitos;
         this.categorias = categorias;
         this.postulantes = postulantes;
-        this.id += 1;
+        this.ofertaId = count.incrementAndGet();
     }
 
     public String getTitulo() {
@@ -72,7 +76,7 @@ public class OfertaLaboralVO {
     }
 
     public Integer getId() {
-        return id;
+        return ofertaId;
     }
 
     public void setTipo(Tipo tipo) {

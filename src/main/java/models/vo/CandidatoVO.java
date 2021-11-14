@@ -4,55 +4,59 @@ import models.enums.Categoria;
 import models.enums.Conocimiento;
 import models.enums.Idioma;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CandidatoVO {
 	private String nombre;
 	private String apellido;
 	private Integer DNI;
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	private String nacionalidad;
 	private List<Conocimiento> conocientos;
 	private List<Idioma> idiomas;
 	private List<Categoria> categorias;
+	private Integer userId;
+	private static final AtomicInteger count = new AtomicInteger(0);
 
 	public CandidatoVO() {
-
+		this.userId = count.incrementAndGet();
 	}
 
 	public CandidatoVO(String nombre, String apellido, Integer DNI) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.DNI = DNI;
+		this.userId = count.incrementAndGet();
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 	
 	public String getApellido() {
-		return apellido;
+		return this.apellido;
 	}
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
 	
 	public Integer getDNI() {
-		return DNI;
+		return this.DNI;
 	}
 	public void setDNI(Integer dNI) {
-		DNI = dNI;
+		this.DNI = dNI;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
+	public LocalDate getFechaNacimiento() {
+		return this.fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
