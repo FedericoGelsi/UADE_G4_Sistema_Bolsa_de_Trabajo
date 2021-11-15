@@ -5,7 +5,7 @@ import views.VentanaReporte;
 public class Principal {
 	
 	VentanaReporte miVentanaReporte;
-	ReporteController miCoordinador;
+	InformeController miCoordinador;
 
 	/**
 	 * @param args
@@ -22,13 +22,13 @@ public class Principal {
 	private void iniciar() {
 		/*Se instancian las clases*/
 		miVentanaReporte=new VentanaReporte();
-		miCoordinador= new ReporteController();
+		miCoordinador= new InformeController();
 		
 		/*Se establecen las relaciones entre clases*/
 		miVentanaReporte.setCoordinador(miCoordinador);
 		
 		/*Se establecen relaciones con la clase coordinador*/
-		miCoordinador.setMiVentanaReporte(miVentanaReporte);		
+		miCoordinador.setMiVentanaReporte(miVentanaReporte);
 				
 		miVentanaReporte.setVisible(true);
 	}

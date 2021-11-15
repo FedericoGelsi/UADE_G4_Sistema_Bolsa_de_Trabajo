@@ -1,14 +1,24 @@
 package models.vo;
 
+
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class InformeVO {
     private String titulo;
-    private Integer id;
+    private Integer informeId;
     private String texto;
+    private static final AtomicInteger count = new AtomicInteger(0);
+    private Integer cantidad_entre_fechas;
+
 
     public InformeVO(String titulo, Integer id, String texto) {
         this.titulo = titulo;
-        this.id = id;
+        this.informeId = count.incrementAndGet();
         this.texto = texto;
+    }
+
+    public InformeVO() {
+
     }
 
     public String getTitulo() {
@@ -20,11 +30,11 @@ public class InformeVO {
     }
 
     public Integer getId() {
-        return id;
+        return informeId;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.informeId = id;
     }
 
     public String getTexto() {
@@ -33,5 +43,11 @@ public class InformeVO {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+    public Integer getCantidad_entre_fechas() {
+        return cantidad_entre_fechas;
+    }
+    public void setCantidad_entre_fechas(Integer cantidad_entre_fechas) {
+        this.cantidad_entre_fechas = cantidad_entre_fechas;
     }
 }
