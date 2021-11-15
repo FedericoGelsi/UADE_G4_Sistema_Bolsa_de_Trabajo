@@ -52,7 +52,7 @@ public class ReporteController {
 				}
 			}
 			if(cant > mayor) {
-				title = ol.getTitulo();
+				title = ol.getOfertaLaboralVO().getTitulo();
 				mayor = cant;
 			}
 		}
