@@ -11,7 +11,7 @@ public class InformeVO {
     private Integer cantidad_entre_fechas;
 
 
-    public InformeVO(String titulo, Integer id, String texto) {
+    public InformeVO(String titulo, String texto) {
         this.titulo = titulo;
         this.informeId = count.incrementAndGet();
         this.texto = texto;
