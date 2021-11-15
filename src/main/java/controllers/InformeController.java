@@ -1,16 +1,17 @@
 package controllers;
 
+import models.Publicacion;
 import models.enums.Categoria;
-import models.enums.Requisito;
-import models.vo.InformeVO;
-import models.vo.OfertaLaboralVO;
-import models.vo.PublicacionVO;
+import models.vo.*;
+import views.VentanaReporte;
 
 import java.util.*;
 
 public class InformeController {
 
     private OfertaController ofertaController;
+    private Publicacion publicacion;
+    private VentanaReporte miVentanaReporte;
 
     public List<Categoria> categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
         Map<Categoria, Integer> ofertas = new HashMap<>();
@@ -48,32 +49,42 @@ public class InformeController {
         return categorias;
     }
 
-    public InformeVO getInformeOfertaMasAccesible(){
-        String title = "Oferta Mas Accesible";
-        int menosRequisitos = 0, menosTareas = 0;
-        List<Requisito> requisitosList;
-        String modalidad, tipo, descripcion, resultado = null;
-
-        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
-        for(PublicacionVO publicacionVO : publicaciones) {
-            OfertaLaboralVO ofertaLaboralVO = publicacionVO.getOfertaLaboral();
-            requisitosList = ofertaLaboralVO.getRequisitos();
-            modalidad = ofertaLaboralVO.getModaIidad();
-            tipo = ofertaLaboralVO.getTipo();
-            descripcion = ofertaLaboralVO.getDescripcion();
-
-            if (modalidad == Modalidad.PART_TIME && tipo == Tipo.REMOTO) {
-                if (descripcion.length() < menosTareas) {
-                    if (requisitosList.size() < menosRequisitos) {
-                        menosRequisitos = requisitosList.size();
-                        menosTareas = descripcion.length();
-                        resultado = ofertaLaboralVO.getTitulo();
+    public InformeVO getReporteMayorOfertasLaborales(String mes, String anio) {
+        InformeVO res = new InformeVO();
+        List<PublicacionVO> publicaciones = publicacion.getPublicaciones();
+        String title = "";
+        int mayor = 0;
+        for(PublicacionVO ol : publicaciones) {
+            int cant = 0;
+            for(PostulanteVO postulacion : ol.getPostulaciones()) {
+                if(postulacion.getAnio().toString().equals(anio.trim())) {
+                    if(!mes.trim().equals("") && postulacion.getMes().toString().equals(mes.trim())) {
+                        cant++;
+                    }
+                    else if(mes.trim().equals("")){
+                        cant++;
                     }
                 }
             }
+            if(cant > mayor) {
+                title = ol.getOfertaLaboralVO().getTitulo();
+                mayor = cant;
+            }
         }
 
-        return new InformeVO(title,resultado) ;
+        res.setTitulo(title);
+        res.setCantidad_entre_fechas(mayor);
+        return res;
     }
 
+    public void setMiVentanaReporte(VentanaReporte miVentanaReporte) {
+        this.miVentanaReporte = miVentanaReporte;
+    }
+
+    public VentanaReporte getMiVentanaReporte() {
+        return miVentanaReporte;
+    }
+    public void mostrarVentanaReporte() {
+        miVentanaReporte.setVisible(true);
+    }
 }

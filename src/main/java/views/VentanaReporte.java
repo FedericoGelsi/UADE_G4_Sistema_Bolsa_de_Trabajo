@@ -1,6 +1,8 @@
 package views;
 
+import controllers.InformeController;
 import controllers.ReporteController;
+import models.vo.InformeVO;
 import models.vo.ReporteVO;
 
 import javax.swing.*;
@@ -12,7 +14,7 @@ import java.awt.event.ActionListener;
 public class VentanaReporte extends JFrame {
 
 	private JPanel contentPane;
-	private ReporteController miCoordinador; //objeto miCoordinador que permite la relacion entre esta clase y la clase coordinador
+	private InformeController miCoordinador; //objeto miCoordinador que permite la relacion entre esta clase y la clase coordinador
 	private JTextField txtMes;
 	private JTextField txtAnio;
 
@@ -68,9 +70,9 @@ public class VentanaReporte extends JFrame {
 		JButton btnNewButton = new JButton("Generar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ReporteVO miReporte = miCoordinador.getReporteMayorOfertasLaborales(txtMes.getText(), txtAnio.getText());
+				InformeVO miReporte = miCoordinador.getReporteMayorOfertasLaborales(txtMes.getText(), txtAnio.getText());
 				
-				lblOfertaTitle.setText(miReporte.getTitulo_oferta());
+				lblOfertaTitle.setText(miReporte.getTitulo());
 				lblPostulantes.setText(miReporte.getCantidad_entre_fechas().toString() + " candidatos");
 			}
 		});
@@ -78,7 +80,7 @@ public class VentanaReporte extends JFrame {
 		contentPane.add(btnNewButton);		
 	}
 	
-	public void setCoordinador(ReporteController miCoordinador) {
+	public void setCoordinador(InformeController miCoordinador) {
 		System.out.println("contro: " + miCoordinador.toString());
 		this.miCoordinador=miCoordinador;
 	}
