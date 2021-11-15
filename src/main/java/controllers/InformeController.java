@@ -1,8 +1,10 @@
 package controllers;
 
 import models.enums.Categoria;
+import models.enums.Requisito;
 import models.vo.InformeVO;
 import models.vo.OfertaLaboralVO;
+import models.vo.PublicacionVO;
 
 import java.util.*;
 
@@ -44,6 +46,34 @@ public class InformeController {
             qty--;
         }
         return categorias;
+    }
+
+    public InformeVO getInformeOfertaMasAccesible(){
+        String title = "Oferta Mas Accesible";
+        int menosRequisitos = 0, menosTareas = 0;
+        List<Requisito> requisitosList;
+        String modalidad, tipo, descripcion, resultado = null;
+
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
+        for(PublicacionVO publicacionVO : publicaciones) {
+            OfertaLaboralVO ofertaLaboralVO = publicacionVO.getOfertaLaboral();
+            requisitosList = ofertaLaboralVO.getRequisitos();
+            modalidad = ofertaLaboralVO.getModaIidad();
+            tipo = ofertaLaboralVO.getTipo();
+            descripcion = ofertaLaboralVO.getDescripcion();
+
+            if (modalidad == Modalidad.PART_TIME && tipo == Tipo.REMOTO) {
+                if (descripcion.length() < menosTareas) {
+                    if (requisitosList.size() < menosRequisitos) {
+                        menosRequisitos = requisitosList.size();
+                        menosTareas = descripcion.length();
+                        resultado = ofertaLaboralVO.getTitulo();
+                    }
+                }
+            }
+        }
+
+        return new InformeVO(title,resultado) ;
     }
 
 }

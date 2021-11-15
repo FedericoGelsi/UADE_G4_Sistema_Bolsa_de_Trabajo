@@ -5,7 +5,7 @@ public class InformeVO {
     private Integer id;
     private String texto;
 
-    public InformeVO(String titulo, Integer id, String texto) {
+    public InformeVO(String titulo, String texto) {
         this.titulo = titulo;
         this.id = id;
         this.texto = texto;

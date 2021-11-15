@@ -11,11 +11,11 @@ import java.util.List;
 
 public class ReporteController {
 
-	private Publicacion publicacion;
+	private PublicacionController publicacionController;
 	private VentanaReporte miVentanaReporte;
 	
 	public ReporteController() {
-		publicacion = new Publicacion();
+		publicacionController = new Publicacion();
 	}
 	
 	public VentanaReporte getMiVentanaReporte() {
@@ -25,7 +25,7 @@ public class ReporteController {
 		this.miVentanaReporte = miVentanaReporte;
 	}	
 	public Publicacion getMiLogica() {
-		return publicacion;
+		return publicacionController;
 	}
 	
 //////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ public class ReporteController {
 	
 	public ReporteVO getReporteMayorOfertasLaborales(String mes, String anio) {
 		ReporteVO res = new ReporteVO();
-		List<PublicacionVO> publicaciones = publicacion.getPublicaciones();
+		List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
 		String title = "";
 		int mayor = 0;
 		for(PublicacionVO ol : publicaciones) {
@@ -61,4 +61,5 @@ public class ReporteController {
 		res.setCantidad_entre_fechas(mayor);
 		return res;
 	}
+
 }
