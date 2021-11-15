@@ -96,7 +96,7 @@ public class InformeController {
                 texto = p.getOfertaLaboralVO().getDescripcion();
             }
         }
-        return new InformeVO(title, id, texto);
+        return new InformeVO(title, texto);
     }
 
     public void setMiVentanaReporte(VentanaReporte miVentanaReporte) {
