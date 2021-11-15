@@ -40,4 +40,8 @@ class InformeControllerTest {
     void TestgetInformeOfertaMasAccesible() {
 
     }
+
+    @Test
+    void trabajoMasExigente() {
+    }
 }
