@@ -2,6 +2,9 @@ package controllers;
 
 import models.Publicacion;
 import models.enums.Categoria;
+import models.enums.Modalidad;
+import models.enums.Requisito;
+import models.enums.Tipo;
 import models.vo.*;
 import views.VentanaReporte;
 
@@ -11,6 +14,7 @@ public class InformeController {
 
     private OfertaController ofertaController;
     private Publicacion publicacion;
+    private PublicacionController publicacionController;
     private VentanaReporte miVentanaReporte;
 
     public List<Categoria> categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
@@ -87,4 +91,35 @@ public class InformeController {
     public void mostrarVentanaReporte() {
         miVentanaReporte.setVisible(true);
     }
+
+    public InformeVO getInformeOfertaMasAccesible(){
+        String title = "Oferta Mas Accesible";
+        int menosRequisitos = 0, menosTareas = 0;
+        List<Requisito> requisitosList;
+        String descripcion, resultado = null;
+        Modalidad modalidad;
+        Tipo tipo;
+
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
+        for(PublicacionVO publicacionVO : publicaciones) {
+            OfertaLaboralVO ofertaLaboralVO = publicacionVO.getOfertaLaboralVO();
+            requisitosList = ofertaLaboralVO.getRequisitos();
+            modalidad = ofertaLaboralVO.getModalidad();
+            tipo = ofertaLaboralVO.getTipo();
+            descripcion = ofertaLaboralVO.getDescripcion();
+
+            if (modalidad == Modalidad.PART_TIME && tipo == Tipo.REMOTO) {
+                if (descripcion.length() < menosTareas) {
+                    if (requisitosList.size() < menosRequisitos) {
+                        menosRequisitos = requisitosList.size();
+                        menosTareas = descripcion.length();
+                        resultado = ofertaLaboralVO.getTitulo();
+                    }
+                }
+            }
+        }
+
+        return new InformeVO(title,resultado) ;
+    }
 }
+
