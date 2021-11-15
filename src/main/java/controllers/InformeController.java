@@ -13,7 +13,6 @@ import java.util.*;
 public class InformeController {
 
     private OfertaController ofertaController;
-    private Publicacion publicacion;
     private PublicacionController publicacionController;
     private VentanaReporte miVentanaReporte;
 
@@ -55,7 +54,7 @@ public class InformeController {
 
     public InformeVO getReporteMayorOfertasLaborales(String mes, String anio) {
         InformeVO res = new InformeVO();
-        List<PublicacionVO> publicaciones = publicacion.getPublicaciones();
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
         String title = "";
         int mayor = 0;
         for(PublicacionVO ol : publicaciones) {
