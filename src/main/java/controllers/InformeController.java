@@ -80,6 +80,25 @@ public class InformeController {
         return res;
     }
 
+    public InformeVO trabajoMasExigente() {
+        String title = "";
+        String texto = "";
+        int cantRequisitos = 0;
+        int id = -1;
+
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
+        for (PublicacionVO p : publicaciones) {
+            List<Requisito> requisitos = p.getOfertaLaboralVO().getRequisitos();
+            if (requisitos.size() > cantRequisitos) {
+                cantRequisitos = requisitos.size();
+                title = p.getOfertaLaboralVO().getTitulo();
+                id = p.getOfertaLaboralVO().getOfertaId();
+                texto = p.getOfertaLaboralVO().getDescripcion();
+            }
+        }
+        return new InformeVO(title, id, texto);
+    }
+
     public void setMiVentanaReporte(VentanaReporte miVentanaReporte) {
         this.miVentanaReporte = miVentanaReporte;
     }
