@@ -2,6 +2,7 @@ package controllers;
 
 import models.Publicacion;
 import models.enums.Categoria;
+import models.enums.Requisito;
 import models.vo.*;
 import views.VentanaReporte;
 
@@ -10,6 +11,7 @@ import java.util.*;
 public class InformeController {
 
     private OfertaController ofertaController;
+    private PublicacionController publicacionController;
     private Publicacion publicacion;
     private VentanaReporte miVentanaReporte;
 
@@ -75,6 +77,25 @@ public class InformeController {
         res.setTitulo(title);
         res.setCantidad_entre_fechas(mayor);
         return res;
+    }
+
+    public InformeVO trabajoMasExigente() {
+        String title = "";
+        String texto = "";
+        int cantRequisitos = 0;
+        int id = -1;
+
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
+        for (PublicacionVO p : publicaciones) {
+            List<Requisito> requisitos = p.getOfertaLaboralVO().getRequisitos();
+            if (requisitos.size() > cantRequisitos) {
+                cantRequisitos = requisitos.size();
+                title = p.getOfertaLaboralVO().getTitulo();
+                id = p.getOfertaLaboralVO().getOfertaId();
+                texto = p.getOfertaLaboralVO().getDescripcion();
+            }
+        }
+        return new InformeVO(title, id, texto);
     }
 
     public void setMiVentanaReporte(VentanaReporte miVentanaReporte) {
