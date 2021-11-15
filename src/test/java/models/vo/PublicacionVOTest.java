@@ -149,4 +149,17 @@ class PublicacionVOTest {
         // Assert
         assertFalse(actual);
     }
+
+    @Test
+    void TestPublicacionVO_isVigente_ShouldBeFalseIfVigenciaDesdeIsGreaterThanLocalDateTimeNow(){
+        // Arrange
+        LocalDateTime vigenciaDesde = LocalDateTime.of(LocalDate.now(), LocalTime.now().plusMinutes(1));
+        publicacionVO.setVigenciaDesde(vigenciaDesde);
+        // Act
+        boolean actual = publicacionVO.isVigente();
+        // Assert
+        assertFalse(actual);
+    }
+
+
 }
