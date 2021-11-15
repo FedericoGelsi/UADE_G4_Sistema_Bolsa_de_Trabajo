@@ -12,14 +12,14 @@ import java.util.*;
 
 public class InformeController {
 
-    private OfertaController ofertaController;
     private PublicacionController publicacionController;
     private VentanaReporte miVentanaReporte;
 
-    public List<Categoria> categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
+    public InformeVO categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
         Map<Categoria, Integer> ofertas = new HashMap<>();
-
-        List<OfertaLaboralVO> ofertasLaborales = ofertaController.ObtenerOfertasLaborales(idEmpresa);
+        List<Categoria> categoriasMasSeleccionadas;
+        InformeVO informe;
+        List<OfertaLaboralVO> ofertasLaborales = publicacionController.getOfertasLaborales(idEmpresa);
 
         ofertasLaborales.forEach(oferta -> {
             oferta.getCategorias().forEach( categoria -> {
@@ -31,7 +31,14 @@ public class InformeController {
             });
         });
 
-        return getKeysWithMaxValue(ofertas, cantidad);
+        categoriasMasSeleccionadas = getKeysWithMaxValue(ofertas, cantidad);
+
+        informe = new InformeVO(
+                "Categorias",
+                String.join(";", categoriasMasSeleccionadas.toString())
+        );
+
+        return informe;
     }
 
     private static List<Categoria> getKeysWithMaxValue(Map<Categoria, Integer> ofertas, Integer qty) {
@@ -96,7 +103,7 @@ public class InformeController {
                 texto = p.getOfertaLaboralVO().getDescripcion();
             }
         }
-        return new InformeVO(title, id, texto);
+        return new InformeVO(title, texto);
     }
 
     public void setMiVentanaReporte(VentanaReporte miVentanaReporte) {
