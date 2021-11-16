@@ -34,4 +34,8 @@ public class PublicacionController {
     public List<OfertaLaboralVO> getOfertasLaborales(Integer idEmpresa) {
         return ofertaController.ObtenerOfertasLaborales(idEmpresa);
     }
+
+    public void setOfertaController(OfertaController ofertaController) {
+        this.ofertaController = ofertaController;
+    }
 }
