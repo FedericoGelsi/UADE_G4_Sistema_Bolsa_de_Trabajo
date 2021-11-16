@@ -129,18 +129,6 @@ class InformeControllerTest {
     }
 
     @Test
-    void setMiVentanaReporte() {
-    }
-
-    @Test
-    void getMiVentanaReporte() {
-    }
-
-    @Test
-    void mostrarVentanaReporte() {
-    }
-
-    @Test
     void TestgetInformeOfertaMasAccesible() {
 
     }
