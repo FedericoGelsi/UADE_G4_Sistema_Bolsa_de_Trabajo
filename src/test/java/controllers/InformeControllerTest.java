@@ -120,7 +120,7 @@ class InformeControllerTest {
         InformeVO informeActual = informeController.categoriasMasSeleccionadas(idEmpresa, cantidad);
 
         // Assert
-        Assertions.assertEquals(informeExpected.getTexto(), informeActual.getTexto());
+        Assertions.assertEquals(informeExpected.getData(), informeActual.getData());
 
     }
 
