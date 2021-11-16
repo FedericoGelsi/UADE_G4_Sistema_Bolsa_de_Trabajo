@@ -198,7 +198,14 @@ class InformeControllerTest {
     }
 
     @Test
-    void getInformeOfertaMasAccesible() {
+    void TestgetInformeOfertaMasAccesible_ShoudlNotBeNull() {
+        // Act
+        InformeVO actual = informeController.getInformeOfertaMasAccesible();
+        // Assert
+        assertNotNull((actual));
+    }
+    @Test
+    void TestgetInformeOfertaMasAccesible_ShouldReturnInforme() {
         // Arrange
 
         InformeVO informeExpected = new InformeVO("Oferta Mas Accesible", "Menos Exigente");
@@ -209,6 +216,7 @@ class InformeControllerTest {
         // Assert
         Assertions.assertEquals(informeExpected.getData(), informeActual.getData());
     }
+
 
     @Test
     void trabajoMasExigente() {

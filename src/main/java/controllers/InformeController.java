@@ -132,23 +132,26 @@ public class InformeController {
 
     public InformeVO getInformeOfertaMasAccesible(){
         String title = "Oferta Mas Accesible";
-        int menosRequisitos = 50 , menosTareas = 50 ;
+        int menosRequisitos  , menosTareas  ;
         List<Requisito> requisitosList;
         String descripcion, resultado = null;
         Modalidad modalidad;
         Tipo tipo;
         List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
 
+        descripcion = publicaciones.get(0).getOfertaLaboralVO().getDescripcion();
+        menosTareas = descripcion.length();
+        requisitosList = publicaciones.get(0).getOfertaLaboralVO().getRequisitos();
+        menosRequisitos = requisitosList.size();
         for(PublicacionVO publicacionVO : publicaciones) {
             OfertaLaboralVO ofertaLaboralVO = publicacionVO.getOfertaLaboralVO();
             requisitosList = ofertaLaboralVO.getRequisitos();
             modalidad = ofertaLaboralVO.getModalidad();
             tipo = ofertaLaboralVO.getTipo();
             descripcion = ofertaLaboralVO.getDescripcion();
-
             if (modalidad == Modalidad.PART_TIME && tipo == Tipo.REMOTO) {
-                if (descripcion.length() < menosTareas) {
-                    if (requisitosList.size() < menosRequisitos) {
+                if (descripcion.length() <= menosTareas) {
+                    if (requisitosList.size() <= menosRequisitos) {
                         menosRequisitos = requisitosList.size();
                         menosTareas = descripcion.length();
                         resultado = ofertaLaboralVO.getTitulo();
