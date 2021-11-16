@@ -1,7 +1,9 @@
 package controllers;
 
 import models.enums.Categoria;
+import models.enums.Modalidad;
 import models.enums.Requisito;
+import models.enums.Tipo;
 import models.vo.*;
 import views.VentanaReporte;
 
@@ -9,14 +11,14 @@ import java.util.*;
 
 public class InformeController {
 
-    private OfertaController ofertaController;
     private PublicacionController publicacionController;
     private VentanaReporte miVentanaReporte;
 
-    public List<Categoria> categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
+    public InformeVO categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
         Map<Categoria, Integer> ofertas = new HashMap<>();
-
-        List<OfertaLaboralVO> ofertasLaborales = ofertaController.ObtenerOfertasLaborales(idEmpresa);
+        List<Categoria> categoriasMasSeleccionadas;
+        InformeVO informe;
+        List<OfertaLaboralVO> ofertasLaborales = publicacionController.getOfertasLaborales(idEmpresa);
 
         ofertasLaborales.forEach(oferta -> {
             oferta.getCategorias().forEach( categoria -> {
@@ -28,7 +30,14 @@ public class InformeController {
             });
         });
 
-        return getKeysWithMaxValue(ofertas, cantidad);
+        categoriasMasSeleccionadas = getKeysWithMaxValue(ofertas, cantidad);
+
+        informe = new InformeVO(
+                "Categorias",
+                String.join(";", categoriasMasSeleccionadas.toString())
+        );
+
+        return informe;
     }
 
     private static List<Categoria> getKeysWithMaxValue(Map<Categoria, Integer> ofertas, Integer qty) {
@@ -81,7 +90,6 @@ public class InformeController {
         String title = "";
         String texto = "";
         int cantRequisitos = 0;
-        int id = -1;
 
         List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
         for (PublicacionVO p : publicaciones) {
@@ -89,7 +97,6 @@ public class InformeController {
             if (requisitos.size() > cantRequisitos) {
                 cantRequisitos = requisitos.size();
                 title = p.getOfertaLaboralVO().getTitulo();
-                id = p.getOfertaLaboralVO().getOfertaId();
                 texto = p.getOfertaLaboralVO().getDescripcion();
             }
         }
@@ -106,4 +113,35 @@ public class InformeController {
     public void mostrarVentanaReporte() {
         miVentanaReporte.setVisible(true);
     }
+
+    public InformeVO getInformeOfertaMasAccesible(){
+        String title = "Oferta Mas Accesible";
+        int menosRequisitos = 0, menosTareas = 0;
+        List<Requisito> requisitosList;
+        String descripcion, resultado = null;
+        Modalidad modalidad;
+        Tipo tipo;
+
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
+        for(PublicacionVO publicacionVO : publicaciones) {
+            OfertaLaboralVO ofertaLaboralVO = publicacionVO.getOfertaLaboralVO();
+            requisitosList = ofertaLaboralVO.getRequisitos();
+            modalidad = ofertaLaboralVO.getModalidad();
+            tipo = ofertaLaboralVO.getTipo();
+            descripcion = ofertaLaboralVO.getDescripcion();
+
+            if (modalidad == Modalidad.PART_TIME && tipo == Tipo.REMOTO) {
+                if (descripcion.length() < menosTareas) {
+                    if (requisitosList.size() < menosRequisitos) {
+                        menosRequisitos = requisitosList.size();
+                        menosTareas = descripcion.length();
+                        resultado = ofertaLaboralVO.getTitulo();
+                    }
+                }
+            }
+        }
+
+        return new InformeVO(title,resultado) ;
+    }
 }
+

@@ -1,6 +1,6 @@
 package controllers;
 
-import models.Publicacion;
+import models.vo.OfertaLaboralVO;
 import models.vo.PostulanteVO;
 import models.vo.PublicacionVO;
 
@@ -9,6 +9,7 @@ import java.util.List;
 public class PublicacionController {
     private List<PublicacionVO> publicaciones;
     private PostulanteController postulanteController;
+    private OfertaController ofertaController;
 
 
     public PublicacionController() {
@@ -28,5 +29,9 @@ public class PublicacionController {
 
     public void setPostulanteController(PostulanteController postulanteController) {
         this.postulanteController = postulanteController;
+    }
+
+    public List<OfertaLaboralVO> getOfertasLaborales(Integer idEmpresa) {
+        return ofertaController.ObtenerOfertasLaborales(idEmpresa);
     }
 }
