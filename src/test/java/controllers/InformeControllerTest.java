@@ -100,7 +100,7 @@ class InformeControllerTest {
         publicacionController.setOfertaController(ofertaController);
         informeController.setPublicacionController(publicacionController);
 
-        when(publicacionController.getOfertasLaborales(1)).thenReturn(list);
+        //when(publicacionController.getOfertasLaborales(1)).thenReturn(list);
         // when(ofertaController.ObtenerOfertasLaborales(1)).thenReturn((ArrayList<OfertaLaboralVO>) list);
     }
 
@@ -147,5 +147,9 @@ class InformeControllerTest {
 
     @Test
     void trabajoMasExigente() {
+        // Act
+        InformeVO actual = informeController.trabajoMasExigente();
+        // Assert
+        assertNotNull((actual));
     }
 }
