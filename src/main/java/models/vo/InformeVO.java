@@ -6,19 +6,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class InformeVO {
     private String titulo;
     private Integer informeId;
-    private String texto;
+    private String data;
     private static final AtomicInteger count = new AtomicInteger(0);
     private Integer cantidad_entre_fechas;
 
 
-    public InformeVO(String titulo, String texto) {
+    public InformeVO(String titulo, String data) {
         this.titulo = titulo;
         this.informeId = count.incrementAndGet();
-        this.texto = texto;
-    }
-
-    public InformeVO() {
-
+        this.data = data;
     }
 
     public String getTitulo() {
@@ -29,7 +25,7 @@ public class InformeVO {
         this.titulo = titulo;
     }
 
-    public Integer getId() {
+    public Integer getInformeId() {
         return informeId;
     }
 
@@ -37,12 +33,12 @@ public class InformeVO {
         this.informeId = id;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getData() {
+        return data;
     }
 
-    public void setTexto(String texto) {
-        this.texto = texto;
+    public void setData(String data) {
+        this.data = data;
     }
     public Integer getCantidad_entre_fechas() {
         return cantidad_entre_fechas;

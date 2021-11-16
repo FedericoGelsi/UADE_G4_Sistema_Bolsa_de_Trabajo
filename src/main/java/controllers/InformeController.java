@@ -1,6 +1,5 @@
 package controllers;
 
-import models.Publicacion;
 import models.enums.Categoria;
 import models.enums.Modalidad;
 import models.enums.Requisito;
@@ -76,7 +75,7 @@ public class InformeController {
     }
 
     public InformeVO getReporteMayorOfertasLaborales(String mes, String anio) {
-        InformeVO res = new InformeVO();
+        InformeVO res;
         List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
         String title = "";
         int mayor = 0;
@@ -98,7 +97,7 @@ public class InformeController {
             }
         }
 
-        res.setTitulo(title);
+        res = new InformeVO(title, "");
         res.setCantidad_entre_fechas(mayor);
         return res;
     }
