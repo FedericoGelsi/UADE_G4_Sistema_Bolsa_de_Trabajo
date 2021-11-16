@@ -115,7 +115,6 @@ de los requerimientos principales a través de Tests Unitarios.
 ## Patrón Adapter
 Decidimos utilizar el patrón adapter para la implementación de las estrategias de visualización de los informes.
 
-Esto es debido a que los métodos para las interfaces para la visualización web y la visualización con PDF no son
-compatibles con nuestra clase base de informes. Al permitirnos crear una capa media entre los informes y 
-los métodos de visualización, este patrón nos permite interconectar dos elementos que de otra forma tendrían 
-interfaces incompatibles.
+Esto es debido a que los métodos para las interfaces para la visualización web y la visualización con PDF requieren
+de un trabajo extra para poder conectarlos exitosamente. Al permitirnos crear una capa media entre los métodos de 
+visualización, este patrón nos permite interconectar dos elementos que de otra forma tendrían interfaces incompatibles.
