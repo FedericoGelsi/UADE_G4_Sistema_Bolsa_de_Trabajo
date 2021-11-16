@@ -219,10 +219,12 @@ class InformeControllerTest {
 
 
     @Test
-    void trabajoMasExigente() {
+    void testTrabajoMasExigente_ShouldReturnInforme() {
+        // Arrange
+        InformeVO esperado = new InformeVO("Test 3", "Testing method");
         // Act
         InformeVO actual = informeController.trabajoMasExigente();
         // Assert
-        assertNotNull((actual));
+        assertEquals(esperado.getTitulo(), actual.getTitulo());
     }
 }
