@@ -137,9 +137,7 @@ class InformeControllerTest {
         publicacionController.setOfertaController(ofertaController);
         informeController.setPublicacionController(publicacionController);
 
-        // when(publicacionController.getOfertasLaborales(1)).thenReturn(list);
         when(publicacionController.getPublicaciones()).thenReturn(publicacionesVO);
-        // when(ofertaController.ObtenerOfertasLaborales(1)).thenReturn((ArrayList<OfertaLaboralVO>) list);
     }
 
     @AfterEach
