@@ -182,5 +182,9 @@ class InformeControllerTest {
 
     @Test
     void trabajoMasExigente() {
+        // Act
+        InformeVO actual = informeController.trabajoMasExigente();
+        // Assert
+        assertNotNull((actual));
     }
 }
