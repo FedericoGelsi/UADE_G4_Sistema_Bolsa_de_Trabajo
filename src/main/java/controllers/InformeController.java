@@ -1,6 +1,5 @@
 package controllers;
 
-import models.Publicacion;
 import models.enums.Categoria;
 import models.enums.Requisito;
 import models.vo.*;
@@ -12,7 +11,6 @@ public class InformeController {
 
     private OfertaController ofertaController;
     private PublicacionController publicacionController;
-    private Publicacion publicacion;
     private VentanaReporte miVentanaReporte;
 
     public List<Categoria> categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
@@ -52,8 +50,8 @@ public class InformeController {
     }
 
     public InformeVO getReporteMayorOfertasLaborales(String mes, String anio) {
-        InformeVO res = new InformeVO();
-        List<PublicacionVO> publicaciones = publicacion.getPublicaciones();
+        InformeVO res;
+        List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
         String title = "";
         int mayor = 0;
         for(PublicacionVO ol : publicaciones) {
@@ -74,7 +72,7 @@ public class InformeController {
             }
         }
 
-        res.setTitulo(title);
+        res = new InformeVO(title, "");
         res.setCantidad_entre_fechas(mayor);
         return res;
     }
@@ -95,7 +93,7 @@ public class InformeController {
                 texto = p.getOfertaLaboralVO().getDescripcion();
             }
         }
-        return new InformeVO(title, id, texto);
+        return new InformeVO(title, texto);
     }
 
     public void setMiVentanaReporte(VentanaReporte miVentanaReporte) {

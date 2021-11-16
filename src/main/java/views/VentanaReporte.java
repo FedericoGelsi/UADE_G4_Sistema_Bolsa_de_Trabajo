@@ -1,13 +1,10 @@
 package views;
 
 import controllers.InformeController;
-import controllers.ReporteController;
 import models.vo.InformeVO;
-import models.vo.ReporteVO;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 

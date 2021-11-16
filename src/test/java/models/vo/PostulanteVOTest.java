@@ -86,4 +86,15 @@ class PostulanteVOTest {
         actual = e.getMessage();
         assertEquals(expected, actual);
     }
+
+    @Test
+    void TestPostulanteVO_setCandidato_ShouldsetCandidato_WhenCantidatoIsNotNull() throws PostulanteException {
+        // Arrange
+        CandidatoVO expected = new CandidatoVO("DummyName", "DummyName", 1);
+        // Act
+        postulanteVO.setCandidato(expected);
+        CandidatoVO actual = postulanteVO.getCandidato();
+        // Assert
+        assertEquals(expected, actual);
+    }
 }

@@ -1,6 +1,5 @@
 package estrategias;
 
-import estrategias.IEstrategiaDeVisualizacion;
 import estrategias.adapters.pdf.IAdapterPDF;
 import models.vo.InformeVO;
 

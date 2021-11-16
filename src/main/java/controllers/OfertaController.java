@@ -26,7 +26,7 @@ public class OfertaController {
                                          Tipo tipo, String lugar, Double sueldo,
                                          List<Requisito> requisitos, List<Categoria> categorias) {
         OfertaLaboralVO ofertaLaboralVO = new OfertaLaboralVO(
-                empresa.getId(),
+                empresa.getEmpresaId(),
                 titulo,
                 descripcion,
                 modalidad,
@@ -46,7 +46,7 @@ public class OfertaController {
                 ofertasLaborales.stream().filter(oferta -> ofertaId.equals(oferta.getOfertaId())).findAny().orElse(null);
         Integer index = ofertasLaborales.indexOf(ofertaLaboralExistente);
         OfertaLaboralVO ofertaEditada = new OfertaLaboralVO(
-                empresa.getId(),
+                empresa.getEmpresaId(),
                 titulo,
                 descripcion,
                 modalidad,

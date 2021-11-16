@@ -1,14 +1,17 @@
 package models.vo;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class EmpresaVO {
     private String nombre;
-    private String cuit;
-    private Integer id;
+    private Integer cuit;
+    private final Integer empresaId;
+    private static final AtomicInteger count = new AtomicInteger(0);
 
-    public EmpresaVO(String nombre, String cuit, Integer id) {
+    public EmpresaVO(String nombre, Integer cuit) {
         this.nombre = nombre;
         this.cuit = cuit;
-        this.id = id;
+        this.empresaId = count.incrementAndGet();
     }
 
     public String getNombre() {
@@ -19,19 +22,16 @@ public class EmpresaVO {
         this.nombre = nombre;
     }
 
-    public String getCuit() {
+    public Integer getCuit() {
         return cuit;
     }
 
-    public void setCuit(String cuit) {
+    public void setCuit(Integer cuit) {
         this.cuit = cuit;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getEmpresaId() {
+        return empresaId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

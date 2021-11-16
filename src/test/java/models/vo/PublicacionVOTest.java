@@ -1,9 +1,7 @@
 package models.vo;
 
-import models.enums.Categoria;
-import models.enums.Modalidad;
-import models.enums.Requisito;
-import models.enums.Tipo;
+import jdk.jfr.Description;
+import models.enums.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -140,26 +138,47 @@ class PublicacionVOTest {
     }
 
     @Test
-    void TestPublicacionVO_isVigente_ShouldBeFalseIfVigenciaDesdeIsGreaterThanLocalDateTimeNow(){
+    void TestPublicacionVO_getEstadoOferta_ShouldReturnBusquedaAbierta_WhenisVigenteIsTrue(){
         // Arrange
-        LocalDateTime vigenciaDesde = LocalDateTime.of(LocalDate.now(), LocalTime.now().plusMinutes(1));
-        publicacionVO.setVigenciaDesde(vigenciaDesde);
+        EstadoPublicacion expected = EstadoPublicacion.ABIERTA;
         // Act
-        boolean actual = publicacionVO.isVigente();
+        EstadoPublicacion actual = publicacionVO.getEstadoOferta();
         // Assert
-        assertFalse(actual);
+        assertEquals(expected, actual);
     }
 
     @Test
-    void TestPublicacionVO_isVigente_ShouldBeFalseIfVigenciaDesdeIsGreaterThanLocalDateTimeNow(){
+    void TestPublicacionVO_getEstadoOferta_ShouldReturnBusquedaCerrada_WhenisVigenteIsFalse(){
         // Arrange
-        LocalDateTime vigenciaDesde = LocalDateTime.of(LocalDate.now(), LocalTime.now().plusMinutes(1));
-        publicacionVO.setVigenciaDesde(vigenciaDesde);
+        LocalDateTime vigenciaHasta = LocalDateTime.of(LocalDate.now(), LocalTime.now().minusMinutes(1));
+        publicacionVO.setVigenciaHasta(vigenciaHasta);
+        EstadoPublicacion expected = EstadoPublicacion.CERRADA;
         // Act
-        boolean actual = publicacionVO.isVigente();
+        EstadoPublicacion actual = publicacionVO.getEstadoOferta();
         // Assert
-        assertFalse(actual);
+        assertEquals(expected, actual);
     }
 
+    @Test
+    void TestPublicacionVO_getEstadoOferta_ShouldReturnBusquedaInactiva_WhenisVigenteIsFalseandDateIsAfterNWeeks(){
+        // Arrange
+        LocalDateTime vigenciaHasta = LocalDateTime.of(LocalDate.now().minusWeeks(5), LocalTime.now());
+        publicacionVO.setVigenciaHasta(vigenciaHasta);
+        EstadoPublicacion expected = EstadoPublicacion.INACTIVA;
+        // Act
+        EstadoPublicacion actual = publicacionVO.getEstadoOferta();
+        // Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void TestPublicacionVO_getPublicacionId_ShouldReturnDifferentIDsfor2DifferentObjects() {
+        // Arrange
+        Integer expected = new PublicacionVO(new OfertaLaboralVO(), LocalDateTime.now(), LocalDateTime.now()).getPublicacionId();
+        // Act
+        Integer actual = publicacionVO.getPublicacionId();
+        // Assert
+        assertNotEquals(expected, actual);
+    }
 
 }

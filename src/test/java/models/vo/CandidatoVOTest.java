@@ -195,5 +195,14 @@ class CandidatoVOTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void TestCandidatoVO_getUserId_ShouldReturnDifferentIDsfor2DifferentObjects() {
+        // Arrange
+        Integer expected = new CandidatoVO().getUserId();
+        // Act
+        Integer actual = candidatoVO.getUserId();
+        // Assert
+        assertNotEquals(expected, actual);
+    }
 
 }
