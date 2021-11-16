@@ -94,20 +94,27 @@ mayor cantidad de requisitos.
 # Consignas
 
 ## Primera entrega
-* Enumerar y detallar los requerimientos que se desprenden del dominio. Clasificarlos según
+- [x] Enumerar y detallar los requerimientos que se desprenden del dominio. Clasificarlos según
 FURPS+.
-* Realizar el diagrama de casos de uso general del sistema.
-* Realizar la especificación de los casos de uso principales del sistema.
-* Realizar el diagrama de actividad general “Crear oferta laboral”, desde la perspectiva de una
+- [x] Realizar el diagrama de casos de uso general del sistema.
+- [x] Realizar la especificación de los casos de uso principales del sistema.
+- [x] Realizar el diagrama de actividad general “Crear oferta laboral”, desde la perspectiva de una
 empresa.
-* Realizar los diagramas de secuencia que muestren cómo se resuelven los informes que debe
+- [x] Realizar los diagramas de secuencia que muestren cómo se resuelven los informes que debe
 emitir el sistema.
-* Realizar una iteración inicial del diagrama de clases del sistema, detallando, solamente, las
+- [x] Realizar una iteración inicial del diagrama de clases del sistema, detallando, solamente, las
 clases de la capa de dominio.
 
 ## Segunda entrega
-* Realizar el diagrama de clases del sistema, detallando, solamente, las clases de la capa de
+- [x] Realizar el diagrama de clases del sistema, detallando, solamente, las clases de la capa de
 dominio.
-* Justificar utilización de patrones de diseño en el caso que se hayan utilizado.
-* Implementar el diagrama de clases propuesto en Java, mostrando el correcto funcionamiento
+- [ ] Justificar utilización de patrones de diseño en el caso que se hayan utilizado.
+- [ ] Implementar el diagrama de clases propuesto en Java, mostrando el correcto funcionamiento
 de los requerimientos principales a través de Tests Unitarios.
+
+## Patrón Adapter
+Decidimos utilizar el patrón adapter para la implementación de las estrategias de visualización de los informes.
+
+Esto es debido a que los métodos para las interfaces para la visualización web y la visualización con PDF requieren
+de un trabajo extra para poder conectarlos exitosamente. Al permitirnos crear una capa media entre los métodos de 
+visualización, este patrón nos permite interconectar dos elementos que de otra forma tendrían interfaces incompatibles.
