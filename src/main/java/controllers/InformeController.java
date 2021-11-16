@@ -14,10 +14,19 @@ public class InformeController {
     private PublicacionController publicacionController;
     private VentanaReporte miVentanaReporte;
 
+    public InformeController() {
+
+    };
+
+    public void setPublicacionController(PublicacionController publicacionController) {
+        this.publicacionController = publicacionController;
+    }
+
     public InformeVO categoriasMasSeleccionadas(Integer idEmpresa, Integer cantidad) {
         Map<Categoria, Integer> ofertas = new HashMap<>();
         List<Categoria> categoriasMasSeleccionadas;
         InformeVO informe;
+        String texto = "";
         List<OfertaLaboralVO> ofertasLaborales = publicacionController.getOfertasLaborales(idEmpresa);
 
         ofertasLaborales.forEach(oferta -> {
@@ -32,10 +41,14 @@ public class InformeController {
 
         categoriasMasSeleccionadas = getKeysWithMaxValue(ofertas, cantidad);
 
-        informe = new InformeVO(
-                "Categorias",
-                String.join(";", categoriasMasSeleccionadas.toString())
-        );
+        for (int i=0; i < categoriasMasSeleccionadas.size(); i++) {
+            texto += categoriasMasSeleccionadas.get(i).toString();
+            if(i != categoriasMasSeleccionadas.size()-1) {
+                texto += ";";
+            }
+        }
+
+        informe = new InformeVO("Categorias", texto);
 
         return informe;
     }
@@ -47,12 +60,15 @@ public class InformeController {
 
         while(qty != 0) {
             for (Map.Entry<Categoria, Integer> cat : ofertasCopia.entrySet()) {
-                if (maxCategory == null || cat.getValue().compareTo(maxCategory.getValue()) > 0) {
-                    maxCategory = cat;
+                if (maxCategory == null || cat.getValue().compareTo(maxCategory.getValue()) >= 0) {
+                    if(!categorias.contains(cat.getKey())) {
+                        maxCategory = cat;
+                    }
                 }
             }
             categorias.add(maxCategory.getKey());
             ofertasCopia.remove(maxCategory.getKey());
+            maxCategory = null;
             qty--;
         }
         return categorias;
