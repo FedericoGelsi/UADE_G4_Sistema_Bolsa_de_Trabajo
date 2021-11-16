@@ -17,7 +17,7 @@ public class CandidatoVO {
 	private List<Conocimiento> conocientos;
 	private List<Idioma> idiomas;
 	private List<Categoria> categorias;
-	private Integer userId;
+	private final Integer userId;
 	private static final AtomicInteger count = new AtomicInteger(0);
 
 	public CandidatoVO() {
@@ -90,5 +90,9 @@ public class CandidatoVO {
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+
+	public Integer getUserId() {
+		return userId;
 	}
 }
