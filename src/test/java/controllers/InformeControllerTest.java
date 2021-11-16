@@ -176,8 +176,16 @@ class InformeControllerTest {
     }
 
     @Test
-    void TestgetInformeOfertaMasAccesible() {
+    void getInformeOfertaMasAccesible() {
+        // Arrange
 
+        InformeVO informeExpected = new InformeVO("Oferta Mas Accesible", "");
+
+        // Act
+        InformeVO informeActual = informeController.getInformeOfertaMasAccesible();
+
+        // Assert
+        Assertions.assertEquals(informeExpected.getTitulo(), informeActual.getTitulo());
     }
 
     @Test
