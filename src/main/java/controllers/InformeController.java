@@ -132,13 +132,13 @@ public class InformeController {
 
     public InformeVO getInformeOfertaMasAccesible(){
         String title = "Oferta Mas Accesible";
-        int menosRequisitos = 0, menosTareas = 0;
+        int menosRequisitos = 50 , menosTareas = 50 ;
         List<Requisito> requisitosList;
         String descripcion, resultado = null;
         Modalidad modalidad;
         Tipo tipo;
-
         List<PublicacionVO> publicaciones = publicacionController.getPublicaciones();
+
         for(PublicacionVO publicacionVO : publicaciones) {
             OfertaLaboralVO ofertaLaboralVO = publicacionVO.getOfertaLaboralVO();
             requisitosList = ofertaLaboralVO.getRequisitos();

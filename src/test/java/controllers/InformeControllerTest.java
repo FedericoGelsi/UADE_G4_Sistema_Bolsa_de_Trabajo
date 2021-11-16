@@ -71,6 +71,17 @@ class InformeControllerTest {
         ));
 
         list.add(new OfertaLaboralVO(
+                1,
+                "Menos Exigente",
+                "Corta",
+                Modalidad.PART_TIME,
+                Tipo.REMOTO,
+                "Casa",
+                160000.00,
+                new ArrayList<>(Collections.singleton(Requisito.REQUISITO1)),
+                new ArrayList<>(Collections.singleton(Categoria.SISTEMAS))
+        ));
+        list.add(new OfertaLaboralVO(
                         1,
                         "Test",
                         "Testing method",
@@ -111,6 +122,17 @@ class InformeControllerTest {
                 Tipo.REMOTO,
                 "Casa",
                 200.00,
+                new ArrayList<>(Collections.singleton(Requisito.REQUISITO1)),
+                new ArrayList<>(Collections.singleton(Categoria.SISTEMAS))
+        ), LocalDateTime.now(), LocalDateTime.now()));
+
+        publicacionesVO.add(new PublicacionVO(new OfertaLaboralVO(1,
+                "Menos Exigente",
+                "Corta",
+                Modalidad.PART_TIME,
+                Tipo.REMOTO,
+                "Casa",
+                160000.00,
                 new ArrayList<>(Collections.singleton(Requisito.REQUISITO1)),
                 new ArrayList<>(Collections.singleton(Categoria.SISTEMAS))
         ), LocalDateTime.now(), LocalDateTime.now()));
@@ -179,13 +201,13 @@ class InformeControllerTest {
     void getInformeOfertaMasAccesible() {
         // Arrange
 
-        InformeVO informeExpected = new InformeVO("Oferta Mas Accesible", "");
+        InformeVO informeExpected = new InformeVO("Oferta Mas Accesible", "Menos Exigente");
 
         // Act
         InformeVO informeActual = informeController.getInformeOfertaMasAccesible();
 
         // Assert
-        Assertions.assertEquals(informeExpected.getTitulo(), informeActual.getTitulo());
+        Assertions.assertEquals(informeExpected.getData(), informeActual.getData());
     }
 
     @Test
